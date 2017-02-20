@@ -14,13 +14,15 @@ The general inferencing services provided by LiFR are:
  - Fuzzy entailment
  - Best entailment degree (BED) calculation
 
-Extending Pocket KRHyper, LiFR’s default reasoning service consists in the generation of all models that satisfy the input fuzzy knowledge base, thereby providing native support for the computation of the *global Greatest Lower Bound (GLB)*, i.e the GLB for all combinations of individuals and concepts.
+Extending Pocket KRHyper, LiFR’s default reasoning service consists in the generation of all models that satisfy the input fuzzy knowledge base, thereby providing native support for the computation of the BED for all combinations of individuals and concepts.
 
 ### LiFR Semantics and Syntax ###
 
 LiFR supports fuzzy DLP (f-DLP) semantics, except that as of yet fuzzy assertions are restricted to concepts only, with an added support for weighted concept modifiers, while role assertions are treated as crisp with an imposed membership degree of ≥ 1.0 .
 
-f-DLP is the fuzzy extension of [DLP](http://www.cs.man.ac.uk/~horrocks/Publications/download/2003/p117-grosof.pdf), a tractable knowledge representation fragment, closely related to the [OWL 2 RL](http://www.w3.org/TR/owl2-profiles/#OWL_2_RL) proﬁle, that combines classical DLs with Logic Programs (LP), thus combining ontologies with rules.  The crisp operations intersection, union and implication, are extended to fuzzy sets and performed by t-norm, t-conorm and implication functions respectively. The fuzzy set operations of LiFR follow the operators of [Zadeh fuzzy logic](http://www-bisc.cs.berkeley.edu/Zadeh-1965.pdf). LiFR's syntax follows a variant of the [KRSS](http://dl.kr.org/dl97/krss.ps) ontological notation. 
+f-DLP is the fuzzy extension of [DLP](http://www.cs.man.ac.uk/~horrocks/Publications/download/2003/p117-grosof.pdf), a tractable knowledge representation fragment, closely related to the [OWL 2 RL](http://www.w3.org/TR/owl2-profiles/#OWL_2_RL) proﬁle, that combines classical DLs with Logic Programs (LP), thus combining ontologies with rules.  The crisp operations intersection, union and implication, are extended to fuzzy sets and performed by t-norm, t-conorm and implication functions respectively. The fuzzy set operations of LiFR follow the operators of [Zadeh fuzzy logic](http://www-bisc.cs.berkeley.edu/Zadeh-1965.pdf). 
+
+LiFR's syntax follows a variant of the [KRSS](http://dl.kr.org/dl97/krss.ps) ontological notation. 
 
 ### Relevant publication ###
 Tsatsou, D., Dasiopoulou, S., Kompatsiaris, I., & Mezaris, V. (2014, May). LiFR: a lightweight fuzzy DL reasoner. In European Semantic Web Conference (pp. 263-267). Springer International Publishing. 
