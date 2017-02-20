@@ -1,2 +1,26 @@
-# lifr
-LiFR is a Lighweight Fuzzy semantic Reasoner and supports fuzzy DLP (f-DLP) semantics. 
+# LiFR
+**LiFR** is a **Li**ghweight **F**uzzy semantic **R**easoner. It implements a fuzzy extension of Description Logic Programs (*f*-DLP).
+
+## Description ##
+The algorithmic foundation of LiFR lies in the crisp reasoner it has extended: the [Pocket KRHyper](http://ceur-ws.org/Vol-189/submission_36.pdf) reasoner, a reasoner initially developed for first generation mobile devices. Thus it is a first-order model generating reasoner implementing the [hyper-tableaux calculus](http://link.springer.com/chapter/10.1007/3-540-69778-0_14). DL reasoning in Pocket KRHyper is performed through translating DLs axioms to ﬁrst order clauses, as portrayed in the translation primitives of Pocket KRHyper. The original [Description Logic (DL)](http://arxiv.org/pdf/1201.4089.pdf) interface provided by Pocket KRHyper was extended to support added semantics and fuzzy operators’ transformation into the native ﬁrst order clausal implementation. 
+
+LiFR has extended Pocket KRHyper to fuzziness and has made improvements on the original implementation efficiency-wise and with respect to disjunction handling. The first extension within CERTH, named initially *f*-PocketKRHyper, was a J2ME application like its crisp predecessor. Since then, it was transformed to JavaSE with an interest in rendering it capable of multi-platform implementations, while maintaining the original implementation's principles of a lightweight and efficient algorithm, capable of performing reasoning services *in every device*, including in limited resource devices, such as smartphones, tablets, set-top boxes etc.
+
+The general inferencing services provided by LiFR are:
+
+ - Consistency checking
+ - Satisfiability checking
+ - Concept subsumption
+ - Fuzzy entailment
+ - Best entailment degree (BED) calculation
+
+Extending Pocket KRHyper, LiFR’s default reasoning service consists in the generation of all models that satisfy the input fuzzy knowledge base, thereby providing native support for the computation of the *global Greatest Lower Bound (GLB)*, i.e the GLB for all combinations of individuals and concepts.
+
+### LiFR Semantics and Syntax ###
+
+LiFR supports fuzzy DLP (f-DLP) semantics, except that as of yet fuzzy assertions are restricted to concepts only, with an added support for weighted concept modifiers, while role assertions are treated as crisp with an imposed membership degree of ≥ 1.0 .
+
+f-DLP is the fuzzy extension of [DLP](http://www.cs.man.ac.uk/~horrocks/Publications/download/2003/p117-grosof.pdf), a tractable knowledge representation fragment, closely related to the [OWL 2 RL](http://www.w3.org/TR/owl2-profiles/#OWL_2_RL) proﬁle, that combines classical DLs with Logic Programs (LP), thus combining ontologies with rules.  The crisp operations intersection, union and implication, are extended to fuzzy sets and performed by t-norm, t-conorm and implication functions respectively. The fuzzy set operations of LiFR follow the operators of [Zadeh fuzzy logic](http://www-bisc.cs.berkeley.edu/Zadeh-1965.pdf). LiFR's syntax follows a variant of the [KRSS](http://dl.kr.org/dl97/krss.ps) ontological notation. 
+
+### Relevant publication ###
+Tsatsou, D., Dasiopoulou, S., Kompatsiaris, I., & Mezaris, V. (2014, May). LiFR: a lightweight fuzzy DL reasoner. In European Semantic Web Conference (pp. 263-267). Springer International Publishing. 
