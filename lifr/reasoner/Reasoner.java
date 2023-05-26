@@ -55,7 +55,7 @@ public interface Reasoner {
     
     /**
      * Search for a model or refutation.
-     * @return ture when a model was found, false otherwise
+     * @return true when a model was found, false otherwise
      * @param minDepth the minimum search depth for the algorithm
      * @param maxDepth the maximum search depth for the algorithm.
      * If set to 0, there is no maximum, which might imply that the algorithm does not terminate
