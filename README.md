@@ -32,3 +32,28 @@ The fuzzy extension of ![](https://wikimedia.org/api/rest_v1/media/math/render/s
 LiFR's syntax follows a lisp-like variant of the [KRSS](http://dl.kr.org/dl97/krss.ps) ontological notation. 
 
 
+------------
+## Usage ##
+You can clone the entire repository as a Java project or download the exported **lifr.jar** and add it to your Java project's build path as a library. 
+
+Simple usage examples can be be found under lifr/util/examples. The main examples class is Problems.java. They pertain to minimal toy problems. You can stream or read from file your own KBs and use them similarly. 
+
+###IMPORTANT 
+LiFR uses its own KRSS syntax variant, so you cannot directly import KBs in OWL or other standardized syntaxes. In order to import large TBoxes, you can use the [OWL2LiFRKRSS] (https://github.com/lifr-reasoner/owl2lifrkrss) tool. Clone it as a Java project and convert your OWL ontologies via the owl2lifrkrss/src/test/ConvertOWL2LiFRKRSS.java main class. 
+
+Concept or role declaration is not needed in LiFR. LiFR automatically keeps track of new concepts or roles, as found in KB axioms. Therefore the TBox converter ignores all declarations, as well as all annotations and everything that is beyond LiFR's supported expressivity.
+
+ABox conversion is not available at the moment, since at the time that the converter was created, there was no standardized syntax available in OWL to express fuzzy assertions or weight modifiers. Therefore concept & role assertions and weight modifiers must be created externally as a String, based on the syntax described above, and merged with the rest of the KB.  
+ 
+
+## Changelog
+*01 July 2023*
+
+- Updated usage examples
+- LiFR as library (jar) exported
+
+## Planned upcoming features
+- Documentation update and upload
+- Usage examples with real-world problem KB
+- **LiFR core algorithm update**: *Toggle automatic KB complements induction.* In order to maintain soundness and completeness within the DLP fragment, all concept complements and required related axioms are automatically added to the KB for every concept in the KB. I.e. for every concept A, the concept -A and the axiom (DISJOINT A -A) is inserted in the KB, which more than doubles the TBox size. In many real-world usage cases, it was empirically observed that complements are never asserted, therefore are redundant for the problems at question. To this end, the ability to toggle the complement induction will be offered, in order to reduced reasoning time and consumed resources to approximately less than half. 
+- **LiFR core algorithm update**: *Decision explanation via semantic branch backtracking*. Provides the entire path of the semantic branch(es) that led to a given inferred predicate. 
