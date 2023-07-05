@@ -38,7 +38,7 @@ You can clone the entire repository as a Java project or download the exported *
 
 Simple usage examples can be be found under *lifr/util/examples*. The main examples' class is *Problems.java*. It includes toy problems (text), employed to showcase all core LiFR services. You can stream or read from file your own KBs and use them similarly. 
 
-###IMPORTANT ###
+### IMPORTANT ###
 
 LiFR uses its own KRSS syntax variant, so you cannot directly import KBs in OWL or other standardized syntaxes. In order to import large TBoxes, you can use the [OWL2LiFRKRSS](https://github.com/lifr-reasoner/owl2lifrkrss) tool. Clone it as a Java project and convert your OWL ontologies via the *owl2lifrkrss/src/test/ConvertOWL2LiFRKRSS.java* main class. 
 
@@ -58,6 +58,6 @@ ABox conversion is not available at the moment, since at the time that the conve
 - Usage examples with real-world problem KB
 - Provide LiFR as a library in Maven
 - *LiFR core algorithm update*: **Toggle automatic KB complements induction.** 
-  - In order to maintain soundness and completeness within the DLP fragment, all concept complements and required related axioms are automatically added to the KB for every concept in the KB. I.e. for every concept A, the concept -A and the axiom (DISJOINT A -A) is inserted in the KB, which more than doubles the TBox size. In many real-world usage cases, it was empirically observed that complements are never asserted or inferred, therefore are redundant for the problems at question. To this end, the ability to toggle the complement induction will be offered, in order to reduce reasoning time and consumed resources to approximately less than half. 
+  - In order to maintain soundness and completeness within the DLP fragment, all concept complements and required related axioms are automatically added to the KB for every concept in the KB. I.e. for every concept A, the concept &not;A and the axiom A &not;A &implies; &perp; (DISJOINT A -A) is inserted in the KB, which more than doubles the TBox size. In many real-world usage cases, it was empirically observed that complements are never asserted or inferred, therefore are redundant for the problems at question. To this end, the ability to toggle the complement induction will be offered, in order to reduce reasoning time and consumed resources to approximately less than half. 
 - *LiFR core algorithm update*: **Decision explanation via semantic branch backtracking**. 
   - Provides the entire path of the semantic branch(es) that led to a given inferred predicate. 
