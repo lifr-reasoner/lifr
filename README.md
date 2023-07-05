@@ -36,7 +36,7 @@ LiFR's syntax follows a lisp-like variant of the [KRSS](http://dl.kr.org/dl97/kr
 ## Usage ##
 You can clone the entire repository as a Java project or download the exported **lifr.jar** and add it to your Java project's build path as a library. 
 
-Simple usage examples can be be found under *lifr/util/examples*. **Note** examples are not included in the .jar library. 
+Simple usage examples can be be found under *lifr/util/examples*. **Note:** examples are not included in the .jar library. 
 
 The main examples' class is *Problems.java*. It includes toy problems (text), employed to showcase all core LiFR services. You can stream or read from file your own KBs and use them similarly. 
 
