@@ -36,7 +36,11 @@ LiFR's syntax follows a lisp-like variant of the [KRSS](http://dl.kr.org/dl97/kr
 ## Usage ##
 You can clone the entire repository as a Java project or download the exported **lifr.jar** and add it to your Java project's build path as a library. 
 
-Simple usage examples can be be found under *lifr/util/examples*. The main examples' class is *Problems.java*. It includes toy problems (text), employed to showcase all core LiFR services. You can stream or read from file your own KBs and use them similarly. 
+Simple usage examples can be be found under *lifr/util/examples*. 
+
+The main examples' class is *Problems.java*. It includes toy problems (text), employed to showcase all core LiFR services. You can stream or read from file your own KBs and use them similarly. 
+
+In the class *RealWorldProblems.java* another example can be found of LiFR's usage in a real-world use case, i.e. matching a user's profile to several candidate content items, based on backgroung knowledge of a real-world ontology.
 
 ### Important note ###
 
@@ -48,6 +52,11 @@ ABox conversion is not available at the moment, since at the time that the conve
  
 
 ## Changelog
+*05 July 2023*
+
+- Usage examples commented
+- Added real-world use case example
+
 *01 July 2023*
 
 - Updated usage examples
