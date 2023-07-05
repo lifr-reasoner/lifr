@@ -38,13 +38,13 @@ You can clone the entire repository as a Java project or download the exported *
 
 Simple usage examples can be be found under *lifr/util/examples*. The main examples' class is *Problems.java*. It includes toy problems (text), employed to showcase all core LiFR services. You can stream or read from file your own KBs and use them similarly. 
 
-### IMPORTANT ###
+### Important note ###
 
-LiFR uses its own KRSS syntax variant, so you cannot directly import KBs in OWL or other standardized syntaxes. In order to import large TBoxes, you can use the [OWL2LiFRKRSS](https://github.com/lifr-reasoner/owl2lifrkrss) tool. Clone it as a Java project and convert your OWL ontologies via the *owl2lifrkrss/src/test/ConvertOWL2LiFRKRSS.java* main class. 
+LiFR uses its own KRSS syntax variant, so you cannot directly import KBs in OWL or other standardized syntaxes. In order to import large OWL TBoxes, you can use the [OWL2LiFRKRSS](https://github.com/lifr-reasoner/owl2lifrkrss) tool. Clone it as a Java project and convert your OWL ontologies via the *owl2lifrkrss/src/test/ConvertOWL2LiFRKRSS.java* main class. 
 
 Concept or role declaration is not needed in LiFR. LiFR automatically keeps track of new concepts or roles, as found in KB axioms. Therefore the TBox converter ignores all declarations, as well as all annotations and everything that is beyond LiFR's supported expressivity.
 
-ABox conversion is not available at the moment, since at the time that the converter was created, there was no standardized syntax available in OWL to express fuzzy assertions or weight modifiers. Therefore concept & role assertions and weight modifiers must be created externally as a String (or text file), based on the syntax described in the relevant publication, and then merged with the rest of the KB.  
+ABox conversion is not available at the moment, since at the time that the converter was created, there was no standardized syntax available in OWL to express fuzzy assertions (or weight modifiers - typically part of the TBox). Therefore concept & role assertions (as well as weight modifiers) must be created externally as a String (or text file), based on the syntax described in the relevant publication, and then merged with the rest of the KB.  
  
 
 ## Changelog
