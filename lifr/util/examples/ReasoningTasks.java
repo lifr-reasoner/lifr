@@ -1,5 +1,8 @@
 package lifr.util.examples;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -478,6 +481,14 @@ public class ReasoningTasks {
         
         @SuppressWarnings("unused")
         String s = kb.toString();
+//        File f = new File("resources/check.txt");
+//        FileWriter fw;
+//		try {
+//			fw = new FileWriter(f);
+//			fw.write(s);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
         
         boolean model = false;
         try {
@@ -488,6 +499,7 @@ public class ReasoningTasks {
             
             
             model = reasoner.reason(mintermweight,mintermweight+3,reasonerTimeout);
+//            System.out.println(reasoner.getModel().toString());
             
             long MemoryConsumed = r.totalMemory() - r.freeMemory() - initBytes;
             long time = System.currentTimeMillis() - currentTime;
@@ -497,35 +509,44 @@ public class ReasoningTasks {
             	if (!reasoner.getModel().isEmpty()){
 //            			System.out.println("Model found in "+time+ "ms.\nConsumed "+MemoryConsumed+" bytes.");
             			Vector<Predicate> inferredModel = reasoner.getModel();
+//            			System.out.println(inferredModel.toString());
             			for(Enumeration<Predicate> iter = inferredModel.elements(); iter.hasMoreElements();){
             				Predicate pred = iter.nextElement();
             				if(pred.getName().equalsIgnoreCase(goalPredicateName)) {
             					String var = pred.getTerms().nextElement().getName();
             					if(var.equalsIgnoreCase("candidate")) {
             						System.out.println(">>> Entailed goal: " + pred.toWeightandDegreeString());
+            						LogicFactory.cleanup();
             						return true;
             					}
             				}
             			}
-            	}else {
-					System.out.println(">>> Model found but goal is not entailed.");
-				}
+            	} else {
+            		System.out.println(">>> Model is empty.");
+            		LogicFactory.cleanup();
+                    return false;
+            	}
             } else {
 //                System.out.println("Refutation found in "+time+ "ms.\nConsumed "+MemoryConsumed+" bytes.\n");
                 refuted++;
+                System.out.println(">>> Candidate is in clash with one or more user conditions\n");
+                LogicFactory.cleanup();
                 return false;
             }
         } catch (ProofNotFoundException ex){
             unsolved_timeout++;
             System.out.println("No Solution found for KRSS problem (Timeout)\n");
+            LogicFactory.cleanup();
             return false;
         } catch (Error err){
             unsolved_memory++;
             System.out.println("No Solution found for KRSS problem (Out of Memory)\n");
+            LogicFactory.cleanup();
             return false;
         }
 //        kb.clear();
-        System.out.println(">>> Model is empty.");
+        System.out.println(">>> Model found but goal is not entailed\n");
+        LogicFactory.cleanup();
         return false;
     }
 	

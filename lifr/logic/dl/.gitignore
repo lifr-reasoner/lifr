@@ -1,0 +1,12 @@
+/Axiom.class
+/AxiomType.class
+/Concept.class
+/ConceptExpression.class
+/DLExpression.class
+/DLOperator.class
+/Operand.class
+/Role.class
+/RoleExpression.class
+/TBox.class
+/UndefinedNameException.class
+/UniqueNameAssumptionException.class

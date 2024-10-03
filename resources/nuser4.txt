@@ -1,0 +1,8 @@
+(DISJOINT nuser4 dis)
+(IMPLIES (SOME fulfilgoal implicit_goal) nuser4)
+(IMPLIES (SOME haspreference (OR tomato avocado)) nuser4)
+(WEIGHT avocado 0.7)
+(WEIGHT tomato 0.9)
+(INSTANCE user nuser4 >= 1.0)
+(INSTANCE user adult >= 1.0)
+(RELATED user nutr allowednutrient)

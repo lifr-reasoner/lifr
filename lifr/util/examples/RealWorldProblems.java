@@ -18,14 +18,20 @@ public class RealWorldProblems {
 	 * Example users and meals are provided in the resources. 
 	 */
 	public static void nactTest() {
-    	String onto = SimpleFileReader.readFile("resources/nact_1.5_incon.krss");
-    	String user = "user1"; //user2;
+    	String onto = SimpleFileReader.readFile("resources/NAct.krss");//nact_1.9.1_food_incon.krss
+    	//Users user1, user2, user3 work with older versions of NAct (from 1.9.1 and before)
+    	//Users nuser1, nuser2, nuser3, nuser4 work with the latest version of NAct (NAct.krss here) or converted version of NAct from GitHub)
+    	String user = "nuser3"; 
     	String userProfile = SimpleFileReader.readFile("resources/" + user + ".txt");
-    	String[] candidateFilenames = {"m11", "m22", "m33", "m44", "m55"};
+    	//Candidate meals {"m11", "m22", "m33", "m44", "m55"} work with older versions of NAct (from 1.9.1 and before)
+    	//Candidate meals {"m1", "m2", "m3", "m4", "m5"} work with the latest version of NAct (NAct.krss here) or converted version of NAct from GitHub)
+    	String[] candidateFilenames = {"m1", "m2", "m3", "m4", "m5"};//{"m11", "m22", "m33", "m44", "m55"};
     	
     	String backgroundProblem = onto.trim() + "\n"
     			+ userProfile.trim() + "\n"
     	;
+    	
+    	System.out.println();
     	
     	for(String candidateFilename: candidateFilenames) {
     		String candidate = SimpleFileReader.readFile("resources/" + candidateFilename + ".txt");

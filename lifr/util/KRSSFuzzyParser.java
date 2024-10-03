@@ -740,6 +740,7 @@ public class KRSSFuzzyParser extends Throwable{
     
     private int scanComplex (String defClause) throws ParseException{
     	//StringBuffer left = new StringBuffer();
+//    	System.out.println(defClause);
     	complexExpression.setLength(0);
     	int parenthCount = 0;
     	int stop = 1;
